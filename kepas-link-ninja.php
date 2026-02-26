@@ -3,7 +3,7 @@
  * Plugin Name:  Kepa's Link Ninja
  * Plugin URI:   https://github.com/kepa/link-ninja
  * Description:  A beautiful Linktree-style link page for musicians. Showcase your social media, streaming services, and new releases all in one place.
- * Version:      1.5.0
+ * Version:      1.5.1
  * Author:       Kepa
  * License:      GPL-2.0+
  * Text Domain:  kepas-link-ninja
@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Plugin constants
-define( 'KLN_VERSION',     '1.5.0' );
+define( 'KLN_VERSION',     '1.5.1' );
 define( 'KLN_PLUGIN_FILE', __FILE__ );
 define( 'KLN_PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
 define( 'KLN_PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
