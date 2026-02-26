@@ -230,6 +230,40 @@
     ====================================================================== -->
     <div class="kln-panel" id="kln-tab-settings">
         <div class="kln-card">
+            <h2 class="kln-card-title"><?php esc_html_e( 'Update from GitHub', 'kepas-link-ninja' ); ?></h2>
+            <p><strong><?php esc_html_e( 'Your links and settings are stored in the database and are never lost when you update the plugin.', 'kepas-link-ninja' ); ?></strong></p>
+            <p>
+                <?php echo esc_html( sprintf( __( 'Current version: %s', 'kepas-link-ninja' ), KLN_VERSION ) ); ?>
+                <?php
+                $release = class_exists( 'KLN_Updater' ) ? KLN_Updater::get_latest_release() : null;
+                if ( $release && ! empty( $release['version'] ) && version_compare( $release['version'], KLN_VERSION, '>' ) ) :
+                    ?>
+                    — <strong><?php esc_html_e( 'New version available:', 'kepas-link-ninja' ); ?> <?php echo esc_html( $release['version'] ); ?></strong>
+                <?php endif; ?>
+            </p>
+
+            <h3 class="kln-card-subtitle"><?php esc_html_e( 'How to update from your first version (v1.0.0) right now', 'kepas-link-ninja' ); ?></h3>
+            <ol class="kln-update-steps">
+                <li><?php esc_html_e( 'Download the latest plugin code from GitHub (clone or Download ZIP from the repo).', 'kepas-link-ninja' ); ?></li>
+                <li><?php esc_html_e( 'Rename the folder to exactly: kepas-link-ninja (if it has another name like kepasLinkNinja).', 'kepas-link-ninja' ); ?></li>
+                <li><?php esc_html_e( 'Zip that folder so the zip contains one folder named kepas-link-ninja with all plugin files inside.', 'kepas-link-ninja' ); ?></li>
+                <li><?php esc_html_e( 'In WordPress: Plugins → Add New → Upload Plugin → choose your zip → Install Now → Replace current with upload.', 'kepas-link-ninja' ); ?></li>
+            </ol>
+            <p class="kln-description"><?php esc_html_e( 'Or replace the plugin folder via FTP / file manager: upload the new kepas-link-ninja folder over the old one. Your links and settings stay safe.', 'kepas-link-ninja' ); ?></p>
+
+            <h3 class="kln-card-subtitle"><?php esc_html_e( 'One-click updates later (optional)', 'kepas-link-ninja' ); ?></h3>
+            <p class="kln-description"><?php esc_html_e( 'To get "Update" on the Plugins page from GitHub: create a Release on GitHub and attach a .zip file. The zip must contain a single folder named kepas-link-ninja with the plugin files (same as above). Then click "Check for updates" below and update from the Plugins screen.', 'kepas-link-ninja' ); ?></p>
+
+            <a href="<?php echo esc_url( admin_url( 'admin.php?page=kepas-link-ninja&kln_check_updates=1' ) ); ?>" class="kln-btn kln-btn-primary">
+                <?php esc_html_e( 'Check for updates', 'kepas-link-ninja' ); ?>
+            </a>
+            <p class="kln-description" style="margin-top:12px">
+                <a href="<?php echo esc_url( admin_url( 'plugins.php' ) ); ?>"><?php esc_html_e( 'Go to Plugins page', 'kepas-link-ninja' ); ?></a>
+                <?php esc_html_e( 'to see and run updates when available.', 'kepas-link-ninja' ); ?>
+            </p>
+        </div>
+
+        <div class="kln-card">
             <h2 class="kln-card-title"><?php esc_html_e( 'Link Page', 'kepas-link-ninja' ); ?></h2>
 
             <?php if ( $page_url ) : ?>

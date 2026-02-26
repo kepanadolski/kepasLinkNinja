@@ -73,6 +73,18 @@ class KLN_Public {
             KLN_VERSION,
             true
         );
+
+        $streaming = KLN_Helpers::get_streaming_platforms();
+        $platform_icons = array();
+        $platform_colors = array();
+        foreach ( array_merge( $streaming, array( 'link' => array( 'label' => 'Link', 'color' => '#666' ) ) ) as $slug => $data ) {
+            $platform_colors[ $slug ] = $data['color'];
+            $platform_icons[ $slug ]  = KLN_Helpers::get_icon_svg( $slug, 20 );
+        }
+        wp_localize_script( 'kln-public', 'klnData', array(
+            'platformIcons'  => $platform_icons,
+            'platformColors' => $platform_colors,
+        ) );
     }
 
     // -------------------------------------------------------------------------

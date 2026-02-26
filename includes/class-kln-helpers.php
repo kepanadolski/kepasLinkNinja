@@ -150,4 +150,40 @@ class KLN_Helpers {
     public static function uid( $prefix = 'kln' ) {
         return $prefix . '_' . substr( md5( uniqid( $prefix, true ) ), 0, 8 );
     }
+
+    /**
+     * Extract YouTube video ID from various YouTube URL formats.
+     *
+     * @param string $url YouTube URL (watch, youtu.be, embed, etc.)
+     * @return string|null Video ID or null if not a valid YouTube video URL
+     */
+    public static function get_youtube_video_id( $url ) {
+        if ( empty( $url ) || ! is_string( $url ) ) {
+            return null;
+        }
+        $url = trim( $url );
+        // youtu.be/VIDEO_ID
+        if ( preg_match( '#(?:youtu\.be/|youtube\.com/embed/|youtube\.com/v/)([a-zA-Z0-9_-]{11})#', $url, $m ) ) {
+            return $m[1];
+        }
+        // youtube.com/watch?v=VIDEO_ID
+        if ( preg_match( '#youtube\.com/watch\?.*[?&]v=([a-zA-Z0-9_-]{11})#', $url, $m ) ) {
+            return $m[1];
+        }
+        return null;
+    }
+
+    /**
+     * Get YouTube thumbnail URL for a video ID.
+     *
+     * @param string $video_id YouTube video ID
+     * @param string $size     Optional. 'default', 'mqdefault', 'hqdefault', 'sddefault', 'maxresdefault'
+     * @return string
+     */
+    public static function get_youtube_thumbnail_url( $video_id, $size = 'hqdefault' ) {
+        if ( empty( $video_id ) ) {
+            return '';
+        }
+        return 'https://img.youtube.com/vi/' . $video_id . '/' . $size . '.jpg';
+    }
 }

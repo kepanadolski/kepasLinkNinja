@@ -18,10 +18,12 @@ define( 'KLN_PLUGIN_FILE', __FILE__ );
 define( 'KLN_PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
 define( 'KLN_PLUGIN_URL',  plugin_dir_url( __FILE__ ) );
 define( 'KLN_PLUGIN_BASE', plugin_basename( __FILE__ ) );
+define( 'KLN_GITHUB_REPO', 'kepanadolski/kepasLinkNinja' );
 
 // Autoload classes
 require_once KLN_PLUGIN_DIR . 'includes/class-kln-activator.php';
 require_once KLN_PLUGIN_DIR . 'includes/class-kln-helpers.php';
+require_once KLN_PLUGIN_DIR . 'includes/class-kln-updater.php';
 require_once KLN_PLUGIN_DIR . 'admin/class-kln-admin.php';
 require_once KLN_PLUGIN_DIR . 'public/class-kln-public.php';
 
@@ -52,6 +54,7 @@ final class Kepas_Link_Ninja {
 
         if ( is_admin() ) {
             new KLN_Admin();
+            KLN_Updater::init();
         }
 
         new KLN_Public();

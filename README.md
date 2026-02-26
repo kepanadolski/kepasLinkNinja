@@ -224,19 +224,31 @@ A staging site is an exact copy of your WordPress installation where you can tes
 
 ## 8. How to Update the Plugin
 
-Since this is a custom plugin (not from the WordPress.org directory), WordPress will **not** auto-update it.
+Your links and settings are stored in the database and **are not lost** when you update. You can safely replace the plugin files.
 
-To update manually:
+### Option A — Update from first version (or any manual update)
 
-1. **Back up your site** (see Section 1)
-2. Download the new version of the plugin
-3. Go to WordPress Admin → Plugins → find Kepa's Link Ninja → Deactivate
-4. Delete the old plugin files (Plugins → Delete, or via SFTP)
-5. Install the new version using Method A or Method B above
-6. Activate the new version
-7. Check that your data (links, profile, appearance) is still intact — it should be, as the plugin stores data in the WordPress database, not in the plugin files
+Use this when you have v1.0.0 (or any version) and want to install a newer version from GitHub.
 
-> **Note:** Your link data (profile, links, appearance settings) is stored in the WordPress database under the options table. It is not deleted when you deactivate or delete the plugin files.
+1. **Back up your site** (see Section 1).
+2. **Download** the latest code from GitHub (clone the repo or use **Code → Download ZIP**).
+3. **Rename** the folder to exactly **`kepas-link-ninja`** (e.g. if the folder is `kepasLinkNinja-main`, rename it to `kepas-link-ninja`).
+4. **Zip** that folder so the zip contains one folder named `kepas-link-ninja` with all plugin files inside.
+5. In WordPress: **Plugins → Add New → Upload Plugin** → choose your zip → **Install Now** → when asked, choose **Replace current with upload**.
+6. Your links, profile, and appearance stay intact.
+
+**Alternative (FTP):** Upload the new `kepas-link-ninja` folder over the old one in `wp-content/plugins/`. Then refresh the Plugins page. No need to deactivate.
+
+### Option B — One-click update from GitHub (after you set it up)
+
+To get an **Update** link on the Plugins page that installs from GitHub:
+
+1. On GitHub, create a **Release** (e.g. tag `v1.0.1`).
+2. **Attach a .zip file** to the release. The zip must contain **one folder named `kepas-link-ninja`** with the plugin files inside (same as in Option A, step 4).
+3. In WordPress: **Link Ninja → Settings** → click **Check for updates** → you are taken to the Plugins page.
+4. If a new version is available, click **Update now** next to Kepa's Link Ninja.
+
+The plugin checks the repo **kepanadolski/kepasLinkNinja** by default. To use a different repo, define `KLN_GITHUB_REPO` in the main plugin file (e.g. `define( 'KLN_GITHUB_REPO', 'yourname/your-repo' );`).
 
 ---
 

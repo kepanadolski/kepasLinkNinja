@@ -79,6 +79,9 @@
     box-shadow: var(--kln-shadow); margin-bottom: 16px;
 }
 .kln-card-title { font-size: 15px; font-weight: 600; color: var(--kln-text); margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--kln-border); }
+.kln-card-subtitle { font-size: 13px; font-weight: 600; color: var(--kln-text); margin: 20px 0 10px; }
+.kln-update-steps { margin: 0 0 12px; padding-left: 20px; line-height: 1.6; }
+.kln-update-steps li { margin-bottom: 6px; }
 
 /* ---- Notices ---- */
 .kln-notice {
