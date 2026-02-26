@@ -129,6 +129,7 @@ class KLN_Admin {
                 'bg_color_2'    => sanitize_hex_color( $a['bg_color_2'] ?? '#6C3AE8' ),
                 'bg_angle'      => absint( $a['bg_angle'] ?? 135 ),
                 'bg_image_url'  => esc_url_raw( $a['bg_image_url'] ?? '' ),
+                'theme'         => ( isset( $a['theme'] ) && $a['theme'] === 'light' ) ? 'light' : 'dark',
                 'card_style'    => sanitize_key( $a['card_style'] ?? 'glass' ),
                 'card_color'    => sanitize_text_field( $a['card_color'] ?? 'rgba(255,255,255,0.12)' ),
                 'text_color'    => sanitize_hex_color( $a['text_color'] ?? '#ffffff' ),

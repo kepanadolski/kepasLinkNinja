@@ -141,4 +141,11 @@ class KLN_Public {
         }
         return "background: linear-gradient(135deg, #1a0533, #6C3AE8);";
     }
-}
+
+    /**
+     * Theme slug for template class (light = works on white/light bg, dark = dark bg).
+     */
+    public static function get_theme_slug( $appearance ) {
+        $t = $appearance['theme'] ?? 'dark';
+        return ( $t === 'light' || $t === 'dark' ) ? $t : 'dark';
+    }

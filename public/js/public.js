@@ -18,6 +18,10 @@
 
     function closeModal(modalEl) {
         if (!modalEl) return;
+        if (modalEl === youtubeModal) {
+            var wrap = byId('kln-youtube-iframe-wrap');
+            if (wrap) wrap.innerHTML = '';
+        }
         modalEl.classList.remove('is-open');
         modalEl.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';

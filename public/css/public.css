@@ -52,6 +52,26 @@
     padding: 0;
 }
 
+/* ---- Light theme (default): readable on white/light backgrounds, shortcode embed ---- */
+.kln-theme-light {
+    --kln-text: #1e293b;
+    --kln-card: rgba(0,0,0,0.06);
+}
+.kln-theme-light .kln-name { text-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.kln-theme-light .kln-avatar { border-color: rgba(0,0,0,.12); box-shadow: 0 4px 24px rgba(0,0,0,.12), 0 0 0 6px rgba(0,0,0,.04); }
+.kln-theme-light .kln-topbar-icon { color: #475569; background: rgba(255,255,255,.9); }
+.kln-theme-light .kln-topbar-icon:hover { background: #fff; color: #1e293b; }
+.kln-theme-light.kln-card-glass .kln-link-card { background: rgba(255,255,255,.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,.08); }
+.kln-theme-light.kln-card-solid .kln-link-card { background: rgba(255,255,255,.9); border: 1px solid rgba(0,0,0,.06); }
+.kln-theme-light.kln-card-outline .kln-link-card { background: transparent; border: 2px solid rgba(0,0,0,.15); }
+.kln-theme-light .kln-link-card-main:hover { background: rgba(0,0,0,.04); }
+.kln-theme-light .kln-link-card-thumb { background: rgba(0,0,0,.06) center/cover no-repeat; }
+.kln-theme-light .kln-link-card-thumb-icon { background: rgba(0,0,0,.08) !important; color: #475569; }
+.kln-theme-light .kln-link-card-dots { color: #64748b; }
+.kln-theme-light .kln-link-card-dots:hover { background: rgba(0,0,0,.06); color: #1e293b; }
+.kln-theme-light .kln-footer { color: #64748b; }
+.kln-theme-light .kln-bio { opacity: .85; }
+
 /* ---- Profile ---- */
 .kln-profile {
     text-align: center;
@@ -618,6 +638,7 @@
     align-items: center;
     justify-content: center;
     transition: background .2s;
+    z-index: 2;
 }
 .kln-modal-close:hover { background: rgba(255,255,255,.2); }
 
@@ -633,13 +654,13 @@
 .kln-share-btn:hover { background: rgba(255,255,255,.18); transform: translateY(-1px); color: #fff; }
 .kln-share-copy { min-width: 120px; }
 
-.kln-modal-youtube { max-width: 560px; padding: 16px; }
-.kln-youtube-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.kln-modal-youtube { max-width: 560px; padding: 16px; padding-top: 52px; }
+.kln-youtube-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; padding-right: 48px; }
 .kln-youtube-title { font-size: 16px; font-weight: 600; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.kln-youtube-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.kln-youtube-watch-external { font-size: 13px; font-weight: 600; color: var(--kln-accent, #a78bfa); text-decoration: none; }
+.kln-youtube-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.kln-youtube-watch-external { font-size: 13px; font-weight: 600; color: var(--kln-accent, #a78bfa); text-decoration: none; white-space: nowrap; }
 .kln-youtube-watch-external:hover { text-decoration: underline; color: var(--kln-accent, #a78bfa); }
-.kln-youtube-share { width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+.kln-youtube-share { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; border: none; background: rgba(255,255,255,.1); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
 .kln-youtube-share:hover { background: rgba(255,255,255,.2); }
 .kln-youtube-player-wrap { position: relative; width: 100%; padding-bottom: 56.25%; background: #000; border-radius: 12px; overflow: hidden; }
 .kln-youtube-player { position: absolute; inset: 0; }

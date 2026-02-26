@@ -132,10 +132,16 @@ class KLN_Updater {
 
     /**
      * Allow clearing cache when user clicks "Check for updates" on our settings page.
+     * Clears our GitHub cache and WordPress update_plugins transient, then forces
+     * a fresh check so the Plugins screen shows the update.
      */
     public static function maybe_clear_transient() {
         if ( isset( $_GET['page'] ) && $_GET['page'] === 'kepas-link-ninja' && isset( $_GET['kln_check_updates'] ) && current_user_can( 'update_plugins' ) ) {
             delete_site_transient( self::TRANSIENT );
+            delete_site_transient( 'update_plugins' );
+            if ( function_exists( 'wp_update_plugins' ) ) {
+                wp_update_plugins();
+            }
             wp_safe_redirect( admin_url( 'plugins.php' ) );
             exit;
         }

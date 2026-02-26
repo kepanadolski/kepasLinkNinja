@@ -83,7 +83,7 @@ if ( ! $embedded ) :
 <body class="kln-body">
 <?php endif; ?>
 
-<div class="kln-page <?php echo $embedded ? 'kln-embedded' : 'kln-fullpage'; ?> kln-card-<?php echo esc_attr( $card_style ); ?> kln-theme-dark"
+<div class="kln-page <?php echo $embedded ? 'kln-embedded' : 'kln-fullpage'; ?> kln-card-<?php echo esc_attr( $card_style ); ?> kln-theme-<?php echo esc_attr( KLN_Public::get_theme_slug( $appearance ) ); ?>"
      style="<?php echo esc_attr( $css_vars ); ?><?php echo $embedded ? '' : $bg_css; ?>"
      data-page-url="<?php echo esc_attr( $page_url_for_share ); ?>">
 

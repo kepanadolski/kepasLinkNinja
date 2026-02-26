@@ -176,6 +176,15 @@
                 <h2 class="kln-card-title"><?php esc_html_e( 'Cards & Buttons', 'kepas-link-ninja' ); ?></h2>
 
                 <div class="kln-field">
+                    <label><?php esc_html_e( 'Theme', 'kepas-link-ninja' ); ?></label>
+                    <p class="kln-description"><?php esc_html_e( 'Light: best on white/light backgrounds (e.g. shortcode on a white page). Dark: best on dark backgrounds.', 'kepas-link-ninja' ); ?></p>
+                    <select name="appearance[theme]">
+                        <option value="light" <?php selected( ( $appearance['theme'] ?? 'dark' ), 'light' ); ?>><?php esc_html_e( 'Light', 'kepas-link-ninja' ); ?></option>
+                        <option value="dark" <?php selected( ( $appearance['theme'] ?? 'dark' ), 'dark' ); ?>><?php esc_html_e( 'Dark', 'kepas-link-ninja' ); ?></option>
+                    </select>
+                </div>
+
+                <div class="kln-field">
                     <label><?php esc_html_e( 'Card Style', 'kepas-link-ninja' ); ?></label>
                     <div class="kln-radio-group">
                         <?php foreach ( array( 'glass' => 'Glass', 'solid' => 'Solid', 'outline' => 'Outline' ) as $val => $lbl ) : ?>
@@ -254,7 +263,7 @@
             <h3 class="kln-card-subtitle"><?php esc_html_e( 'One-click updates later (optional)', 'kepas-link-ninja' ); ?></h3>
             <p class="kln-description"><?php esc_html_e( 'To get "Update" on the Plugins page from GitHub: create a Release on GitHub and attach a .zip file. The zip must contain a single folder named kepas-link-ninja with the plugin files (same as above). Then click "Check for updates" below and update from the Plugins screen.', 'kepas-link-ninja' ); ?></p>
 
-            <a href="<?php echo esc_url( admin_url( 'admin.php?page=kepas-link-ninja&kln_check_updates=1' ) ); ?>" class="kln-btn kln-btn-primary">
+            <a href="<?php echo esc_url( admin_url( 'admin.php?page=kepas-link-ninja&kln_check_updates=1' ) ); ?>" class="kln-btn kln-btn-primary" target="_blank" rel="noopener">
                 <?php esc_html_e( 'Check for updates', 'kepas-link-ninja' ); ?>
             </a>
             <p class="kln-description" style="margin-top:12px">

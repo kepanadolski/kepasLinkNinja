@@ -28,15 +28,16 @@ class KLN_Activator {
 
         if ( ! get_option( 'kln_appearance' ) ) {
             update_option( 'kln_appearance', array(
-                'bg_type'       => 'gradient',
-                'bg_color_1'    => '#1a0533',
-                'bg_color_2'    => '#6C3AE8',
+                'theme'         => 'light',
+                'bg_type'       => 'solid',
+                'bg_color_1'    => '#f8fafc',
+                'bg_color_2'    => '#e2e8f0',
                 'bg_angle'      => 135,
                 'bg_image_url'  => '',
                 'card_style'    => 'glass',
-                'card_color'    => 'rgba(255,255,255,0.12)',
-                'text_color'    => '#ffffff',
-                'accent_color'  => '#a78bfa',
+                'card_color'    => 'rgba(0,0,0,0.06)',
+                'text_color'    => '#1e293b',
+                'accent_color'  => '#6366f1',
                 'font'          => 'Inter',
                 'button_radius' => 50,
                 'show_footer'   => true,
