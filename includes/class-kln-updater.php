@@ -31,7 +31,7 @@ class KLN_Updater {
     }
 
     /**
-     * Fetch latest release from GitHub (cached).
+     * Fetch latest release from GitHub (cached). Works for public repos without any token.
      */
     public static function get_latest_release() {
         $cached = get_site_transient( self::TRANSIENT );
@@ -39,10 +39,10 @@ class KLN_Updater {
             return is_array( $cached ) ? $cached : null;
         }
 
-        $url = sprintf( self::GITHUB_API, self::get_repo() );
-        $res = wp_remote_get( $url, array(
+        $url  = sprintf( self::GITHUB_API, self::get_repo() );
+        $res  = wp_remote_get( $url, array(
             'headers' => array( 'Accept' => 'application/vnd.github.v3+json' ),
-            'timeout' => 10,
+            'timeout' => 15,
         ) );
 
         if ( is_wp_error( $res ) || wp_remote_retrieve_response_code( $res ) !== 200 ) {
@@ -67,7 +67,7 @@ class KLN_Updater {
             }
         }
         if ( ! $package && ! empty( $body['tag_name'] ) ) {
-            $tag = $body['tag_name'];
+            $tag     = $body['tag_name'];
             $package = 'https://github.com/' . self::get_repo() . '/archive/refs/tags/' . $tag . '.zip';
         }
 
